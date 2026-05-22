@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>URBAN WEAR - Cart</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(to right, black, grey);
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      color: #fff;
+    }
+    header, nav, footer {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    nav a {
+      margin: 0 10px;
+      color: #fff;
+      text-decoration: none;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    #cart-items {
+      max-width: 600px;
+      margin: 20px auto;
+      background: #fff;
+      color: #000;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+    .remove-button {
+      background: red;
+      color: #fff;
+      border: none;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #cart-total {
+      text-align: right;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+    .clear-cart, .checkout-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+    }
+    .clear-cart:hover, .checkout-btn:hover {
+      background: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1>URBAN WEAR</h1>
+    <p>Your one-stop online clothing store</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact & Support</a>
+    <a href="cart.html">Account/Cart</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <div id="cart-total"></div>
+    <button class="clear-cart">Clear Cart</button>
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <a href="faq.html">FAQs</a> |
+    <a href="terms.html">Terms & Conditions</a>
+    <p>&copy; 2025 URBAN WEAR. All rights reserved.</p>
+  </footer>
+
+  <!-- Cart Script -->
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cartItemsDiv = document.getElementById("cart-items");
+    let total = 0;
+
+    function renderCart() {
+      cartItemsDiv.innerHTML = "";
+      total = 0;
+
+      if (cart.length === 0) {
+        cartItemsDiv.innerHTML = "<p>Your cart is currently empty. Browse our shop to add items.</p>";
+        document.getElementById("cart-total").textContent = "";
+        return;
+      }
+
+      cart.forEach((item, index) => {
+        let itemDiv = document.createElement("div");
+        itemDiv.classList.add("cart-item");
+        itemDiv.innerHTML = `
+          <span>${item.name} - P${item.price}</span>
+          <button class="remove-button" data-index="${index}">Remove</button>
+        `;
+        cartItemsDiv.appendChild(itemDiv);
+        total += item.price;
+      });
+
+      document.getElementById("cart-total").textContent = "Total: P" + total.toFixed(2);
+
+      // Attach remove handlers
+      document.querySelectorAll(".remove-button").forEach(button => {
+        button.addEventListener("click", function() {
+          let index = this.getAttribute("data-index");
+          cart.splice(index, 1);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          renderCart();
+        });
+      });
+    }
+
+    // Clear cart button
+    document.querySelector(".clear-cart").addEventListener("click", function() {
+      localStorage.removeItem("cart");
+      cart = [];
+      renderCart();
+    });
+
+    // Checkout button
+    document.querySelector(".checkout-btn").addEventListener("click", function() {
+      if (cart.length === 0) {
+        alert("Your cart is empty. Please add items before checkout.");
+      } else {
+        // Redirect to checkout page
+        window.location.href = "checkout.html";
+      }
+    });
+
+    // Initial render
+    renderCart();
+  </script>
+</body>
+</html>

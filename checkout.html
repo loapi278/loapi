@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>URBAN WEAR - Checkout</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(to right, black, grey);
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      color: #fff;
+    }
+    header, nav, footer {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    nav a {
+      margin: 0 10px;
+      color: #fff;
+      text-decoration: none;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    form {
+      max-width: 500px;
+      margin: 20px auto;
+      background: #fff;
+      color: #000;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .checkout-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background: #007b5e;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .checkout-btn:hover {
+      background: #005f46;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>URBAN WEAR</h1>
+    <p>Secure Checkout</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="cart.html">Cart</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <h2>Enter Your Details</h2>
+    <form id="checkout-form">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" required>
+
+      <label for="address">Shipping Address</label>
+      <input type="text" id="address" required>
+
+      <label for="card">Card Number</label>
+      <input type="text" id="card" required>
+
+      <label for="expiry">Expiry Date</label>
+      <input type="text" id="expiry" placeholder="MM/YY" required>
+
+      <label for="cvv">CVV</label>
+      <input type="text" id="cvv" required>
+
+      <button type="submit" class="checkout-btn">Pay Now</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 URBAN WEAR. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("checkout-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // Hide the form and heading
+      document.getElementById("checkout-form").style.display = "none";
+      document.querySelector("main h2").style.display = "none";
+
+      // Show success message
+      let successMessage = document.createElement("div");
+      successMessage.style.textAlign = "center";
+      successMessage.style.marginTop = "30px";
+      successMessage.style.fontSize = "1.2em";
+      successMessage.style.fontWeight = "bold";
+      successMessage.textContent = "✅ Successfully paid! You will receive an email with the details.";
+      
+      document.querySelector("main").appendChild(successMessage);
+    });
+  </script>
+
+</body>
+</html>

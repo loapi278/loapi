@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>URBAN WEAR - About Us</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(to right, #1e3c72, #2a5298); /* Blue to purple gradient */
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      color: #fff;
+    }
+    header, nav, footer {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    nav a {
+      margin: 0 10px;
+      color: #fff;
+      text-decoration: none;
+    }
+    h1, h2 {
+      text-align: center;
+      margin-top: 20px;
+    }
+    section {
+      max-width: 800px;
+      margin: 20px auto;
+      background: #fff;
+      color: #000;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    section h2 {
+      color: #2a5298;
+      margin-bottom: 10px;
+    }
+    section p {
+      line-height: 1.6;
+    }
+    footer {
+      margin-top: 30px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1>URBAN WEAR</h1>
+    <p>Your one-stop online clothing store</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact & Support</a>
+    <a href="cart.html">Account/Cart</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <section>
+      <h1>About Us</h1>
+      <p>
+        At <strong>URBAN WEAR</strong>, we are passionate about delivering high-quality contemporary fashion that empowers individuals to express their unique identity. 
+        Our mission is to be the premier destination for modern streetwear, providing curated collections that inspire confidence and push the boundaries of style.
+      </p>
+    </section>
+
+    <section>
+      <h2>Our Story</h2>
+      <p>
+        URBAN WEAR was founded with a vision to create a bold and accessible space for trendsetters to find clothing that resonates with their lifestyle. 
+        We began as a small local boutique and have since expanded into a global brand, offering a wide range of products both in-store and online to serve a diverse community of fashion enthusiasts worldwide.
+      </p>
+    </section>
+
+    <section>
+      <h2>Our Values</h2>
+      <p>
+        We are committed to providing designs that are ethically sourced, trendsetting, and relevant to the evolving needs of our customers. 
+        We value creativity, inclusivity, and exceptional customer service, striving to create an inspiring shopping experience for everyone who visits our store.
+      </p>
+    </section>
+
+    <section>
+      <h2>Meet Our Team</h2>
+      <p>
+        Our team is made up of passionate creatives, stylists, and visionaries dedicated to serving our community and sharing their love for street culture. 
+        From trend analysts to customer service representatives, we are here to help you find the perfect fit and elevate your wardrobe.
+      </p>
+    </section>
+
+    <section>
+      <h2>Community Involvement</h2>
+      <p>
+        We believe in giving back to the culture that inspires us. 
+        URBAN WEAR regularly partners with local artists, youth programs, and sustainable organizations to provide platforms for creative expression and support for those building the future of our cities.
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <a href="faq.html">FAQs</a> |
+    <a href="terms.html">Terms & Conditions</a>
+    <p>&copy; 2025 URBAN WEAR. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
